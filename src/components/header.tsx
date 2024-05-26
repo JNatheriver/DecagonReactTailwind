@@ -1,14 +1,12 @@
 import React, { FC, Suspense } from 'react'
 import Icosaedro from '../icosaedro'
 
-const OVERLAY_HEIGHT = '501px'
-
 const HeaderBox: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
     <div className='bg-[#131313] flex flex-1 flex-col w-screen lg:h-screen' {...props}>
       <Header className='inline-flex flex-1 justify-between py-[0.8rem] px-4 border-b border-b-white/40' />
       <div className='flex max-lg:flex-col  lg:h-5/6 lg:items-center lg:justify-center lg:flex-row-reverse lg:w-screen '>
-        <Overlay className={`flex justify-center h-[${OVERLAY_HEIGHT}] overflow-clip max-lg:border-b-white/40 max-lg:border-b lg:flex-1`} />
+        <Overlay className='flex justify-center h-[501px] lg:w-2/3 overflow-clip max-lg:border-b-white/40 max-lg:border-b lg:flex-1' />
         <InfoArticle className='flex flex-col lg:w-1/3' />
       </div>
       <FooterBrand />
@@ -32,7 +30,7 @@ const Overlay: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
     <div {...props}>
       {/* Corners */}
-      <div className={`flex flex-1 flex-col content-between absolute max-lg:w-full lg:w-2/3 h-[${OVERLAY_HEIGHT}]`}>
+      <div className='flex flex-1 flex-col content-between absolute max-lg:w-full lg:w-2/3 h-[501px]'>
         {/* Corner Top */}
         <div className='flex flex-1 justify-between h-1/2 w-full'>
           <div className='w-3 h-3 border-t-2 border-l-2 m-6 border-[#777777]' />
@@ -45,7 +43,7 @@ const Overlay: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
         </div>
       </div>
 
-      <div className={`absolute bg-[length:20px_20px] w-full opacity-30 h-[${OVERLAY_HEIGHT}] lg:w-2/3`} style={{ backgroundImage: 'radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px),radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px)' }} />
+      <div className='absolute bg-[length:20px_20px] w-full opacity-30 h-[501px] lg:w-2/3' style={{ backgroundImage: 'radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px),radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px)' }} />
 
       <div className='self-center h-[300px]'>
         <Suspense>
