@@ -3,10 +3,11 @@ import Icosaedro from '../icosaedro'
 
 const HeaderBox: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className='bg-[#131313] flex flex-1 flex-col' {...props}>
+    <div className='bg-[#131313] flex flex-1 flex-col w-screen' {...props}>
       <Header />
       <Overlay />
       <InfoArticle />
+      <FooterBrand />
     </div>
   )
 }
@@ -54,11 +55,56 @@ const Overlay: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
 
 const InfoArticle: FC<React.HTMLAttributes<HTMLElement>> = (props) => {
   return (
-    <article className='text-white' {...props}>
+    <article className='flex flex-col text-white border-b-white/40 border-b' {...props}>
       <h2 className='font-mono text-4xl px-5 py-9'>AI support agents for your enterprise</h2>
-      <p>Don't get stuck in the last generation. Delight customers 10x more while reducing costs with true generative AI. Trusted by massive enterprises and high-growth startups.</p>
-      <input className='backdrop-blur-sm bg-gray-300/10 rounded-full font-sans text-sm text-white py-2 px-4 border border-white/30' type='email' placeholder='Enter email for demo' />
+      <p className='p-5 pr-10 font-mono text-lg text-white/90'>Don't get stuck in the last generation. Delight customers 10x more while reducing costs with true generative AI. Trusted by massive enterprises and high-growth startups.</p>
+      <div className='flex w-full min-w-[500px] overflow-clip '>
+        <div className='flex w-[500px]'>
+          <input className='bg-gray-300/10 rounded-full font-mono text-xl text-white m-8 mb-7 py-[1.12rem] px-7 border border-white/30 flex-1' type='email' placeholder='Enter email for demo' />
+          <button className='relative rounded-full bg-blue-600 z-10 w-12 h-12 self-center right-24 flex items-center justify-center'>
+            <span role='img' aria-label='arrow-right' className='anticon anticon-arrow-right text-white text-2xl'><svg viewBox='64 64 896 896' focusable='false' data-icon='arrow-right' width='1em' height='1em' fill='currentColor' aria-hidden='true'><path d='M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-.7 5.2-2L869 536.2a32.07 32.07 0 000-48.4z' /></svg></span>
+          </button>
+        </div>
+      </div>
+
     </article>
+  )
+}
+
+const FooterBrand: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
+  return (
+    <div className='inline-flex flex-1 justify-start overflow-clip [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]' {...props}>
+      <BrandList />
+      <BrandList />
+    </div>
+  )
+}
+
+const imageData = [
+  { src: 'https://decagon.ai/_next/image?url=%2Flanding%2Feventbrite.png&w=3840&q=75', alt: 'eventbrite', width: 'w-32' },
+  { src: 'https://decagon.ai/_next/image?url=%2Flanding%2Fbilt.png&w=3840&q=75', alt: 'bilt', width: 'w-24' },
+  { src: 'https://decagon.ai/_next/image?url=%2Flanding%2Fraise.png&w=3840&q=75', alt: 'Raise', width: 'w-24' },
+  { src: 'https://decagon.ai/_next/image?url=%2Flanding%2Fvanta.png&w=3840&q=75', alt: 'Vanta', width: 'w-24' },
+  { src: 'https://decagon.ai/_next/image?url=%2Flanding%2Fsaturn.png&w=3840&q=75', alt: 'saturn', width: 'w-40' },
+  { src: 'https://decagon.ai/_next/image?url=%2Flanding%2Fsubstack.png&w=3840&q=75', alt: 'substack', width: 'w-40' },
+  { src: 'https://decagon.ai/_next/image?url=%2Flanding%2Fmotion.png&w=3840&q=75', alt: 'motion', width: 'w-40' }
+]
+
+const CarouselItem = ({ src, alt, width }: {src: string, alt: string, width: string}) => {
+  return (
+    <li className={width}>
+      <img src={src} alt={alt} />
+    </li>
+  )
+}
+
+const BrandList: FC<React.HtmlHTMLAttributes<HTMLUListElement>> = (props) => {
+  return (
+    <ul className='flex items-center animate-infinite-scroll justify-center h-[72px] *:m-8' {...props}>
+      {imageData.map((image, index) => (
+        <CarouselItem key={index} src={image.src} alt={image.alt} width={image.width} />
+      ))}
+    </ul>
   )
 }
 
