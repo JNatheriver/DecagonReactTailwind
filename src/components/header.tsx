@@ -1,12 +1,16 @@
 import React, { FC, Suspense } from 'react'
 import Icosaedro from '../icosaedro'
 
+const OVERLAY_HEIGHT = '501px'
+
 const HeaderBox: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className='bg-[#131313] flex flex-1 flex-col w-screen' {...props}>
-      <Header />
-      <Overlay />
-      <InfoArticle />
+    <div className='bg-[#131313] flex flex-1 flex-col w-screen lg:h-screen' {...props}>
+      <Header className='inline-flex flex-1 justify-between py-[0.8rem] px-4 border-b border-b-white/40' />
+      <div className='flex max-lg:flex-col  lg:h-5/6 lg:items-center lg:justify-center lg:flex-row-reverse lg:w-screen '>
+        <Overlay className={`flex justify-center h-[${OVERLAY_HEIGHT}] overflow-clip max-lg:border-b-white/40 max-lg:border-b lg:flex-1`} />
+        <InfoArticle className='flex flex-col lg:w-1/3' />
+      </div>
       <FooterBrand />
     </div>
   )
@@ -14,8 +18,8 @@ const HeaderBox: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
 
 const Header: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className='flex flex-1 justify-between py-[0.8rem] px-4 border-b border-b-white/40' {...props}>
-      <div className='flex items-center space-x-6'>
+    <div {...props}>
+      <div className='inline-flex items-center space-x-6 '>
         <img loading='lazy' className='w-10 h-8' src='https://decagon.ai/landing/logo-filled.svg' />
         <img loading='lazy' className='w-24 h-3' src='https://decagon.ai/landing/logo-text.svg' />
       </div>
@@ -26,9 +30,9 @@ const Header: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
 
 const Overlay: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className='flex border-b-white border-b justify-center h-[501px] overflow-clip' style={{ clipPath: 'content-box' }} {...props}>
+    <div {...props}>
       {/* Corners */}
-      <div className='flex flex-1 flex-col content-between absolute w-full h-[501px]'>
+      <div className={`flex flex-1 flex-col content-between absolute max-lg:w-full lg:w-2/3 h-[${OVERLAY_HEIGHT}]`}>
         {/* Corner Top */}
         <div className='flex flex-1 justify-between h-1/2 w-full'>
           <div className='w-3 h-3 border-t-2 border-l-2 m-6 border-[#777777]' />
@@ -41,7 +45,7 @@ const Overlay: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
         </div>
       </div>
 
-      <div style={{ position: 'absolute', backgroundImage: 'radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px),radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px)', backgroundSize: '20px 20px', width: '100%', height: '100%', opacity: '30%' }} />
+      <div className={`absolute bg-[length:20px_20px] w-full opacity-30 h-[${OVERLAY_HEIGHT}] lg:w-2/3`} style={{ backgroundImage: 'radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px),radial-gradient(circle 2px at 10px 10px,hsla(0,0%,100%,.1) 2px,transparent 2.5px)' }} />
 
       <div className='self-center h-[300px]'>
         <Suspense>
@@ -55,10 +59,10 @@ const Overlay: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
 
 const InfoArticle: FC<React.HTMLAttributes<HTMLElement>> = (props) => {
   return (
-    <article className='flex flex-col text-white border-b-white/40 border-b' {...props}>
-      <h2 className='font-mono text-4xl px-5 py-9'>AI support agents for your enterprise</h2>
+    <article {...props}>
+      <h2 className='font-mono text-4xl px-5 py-9 text-white'>AI support agents for your enterprise</h2>
       <p className='p-5 pr-10 font-mono text-lg text-white/90'>Don't get stuck in the last generation. Delight customers 10x more while reducing costs with true generative AI. Trusted by massive enterprises and high-growth startups.</p>
-      <div className='flex w-full min-w-[500px] overflow-clip '>
+      <div className='flex w-full max-lg:min-w-[500px] overflow-clip '>
         <div className='flex w-[500px]'>
           <input className='bg-gray-300/10 rounded-full font-mono text-xl text-white m-8 mb-7 py-[1.12rem] px-7 border border-white/30 flex-1' type='email' placeholder='Enter email for demo' />
           <button className='relative rounded-full bg-blue-600 z-10 w-12 h-12 self-center right-24 flex items-center justify-center'>
@@ -73,7 +77,7 @@ const InfoArticle: FC<React.HTMLAttributes<HTMLElement>> = (props) => {
 
 const FooterBrand: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className='inline-flex flex-1 justify-start overflow-clip [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]' {...props}>
+    <div className='border-t-white/40 border-t inline-flex flex-1 justify-start overflow-clip [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]' {...props}>
       <BrandList />
       <BrandList />
     </div>
