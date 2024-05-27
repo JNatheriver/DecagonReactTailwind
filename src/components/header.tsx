@@ -3,7 +3,7 @@ import Icosaedro from '../icosaedro'
 
 const HeaderBox: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className='bg-[#131313] flex flex-col max-lg:w-screen lg:w-[95vw] lg:h-[95vh] rounded-2xl' {...props}>
+    <div className='bg-[#131313] flex flex-col max-lg:w-screen lg:w-[95vw] lg:h-[95vh] lg:rounded-2xl' {...props}>
       <Header className='inline-flex flex-1 justify-between py-[0.8rem] px-4 border-b border-b-white/40' />
       <div className='flex max-lg:flex-col  lg:h-5/6 lg:items-center lg:justify-center lg:flex-row-reverse lg:w-screen '>
         <Overlay className='flex justify-center h-[501px] lg:w-2/3 overflow-clip max-lg:border-b-white/40 max-lg:border-b lg:flex-1' />
