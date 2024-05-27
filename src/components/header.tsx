@@ -3,7 +3,7 @@ import Icosaedro from '../icosaedro'
 
 const HeaderBox: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className='bg-[#131313] flex flex-1 flex-col w-screen lg:h-screen' {...props}>
+    <div className='bg-[#131313] flex flex-col max-lg:w-screen lg:w-[95vw] lg:h-[95vh] rounded-2xl' {...props}>
       <Header className='inline-flex flex-1 justify-between py-[0.8rem] px-4 border-b border-b-white/40' />
       <div className='flex max-lg:flex-col  lg:h-5/6 lg:items-center lg:justify-center lg:flex-row-reverse lg:w-screen '>
         <Overlay className='flex justify-center h-[501px] lg:w-2/3 overflow-clip max-lg:border-b-white/40 max-lg:border-b lg:flex-1' />
@@ -32,12 +32,12 @@ const Overlay: FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
       {/* Corners */}
       <div className='flex flex-1 flex-col content-between absolute max-lg:w-full lg:w-2/3 h-[501px]'>
         {/* Corner Top */}
-        <div className='flex flex-1 justify-between h-1/2 w-full'>
+        <div className='flex flex-1 justify-between h-1/2 w-full lg:w-4/5'>
           <div className='w-3 h-3 border-t-2 border-l-2 m-6 border-[#777777]' />
           <div className='w-3 h-3 border-t-2 border-r-2 m-6 border-[#777777]' />
         </div>
         {/* Corner bottom */}
-        <div className='flex flex-1 justify-between items-end h-1/2 w-full'>
+        <div className='flex flex-1 justify-between items-end h-1/2 w-full lg:w-4/5'>
           <div className='w-3 h-3 border-b-2 border-l-2 m-6 border-[#777777]' />
           <div className='w-3 h-3 border-b-2 border-r-2 m-6 border-[#777777]' />
         </div>

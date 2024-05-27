@@ -4,7 +4,7 @@ import HeaderBox from './components/header'
 
 export default function Home () {
   return (
-    <div style={{ display: 'flex' }}>
+    <div className='flex lg:h-screen lg:w-screen items-center justify-center'>
       <HeaderBox />
     </div>
 
